@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BalticPath – Études dans les pays baltes</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap">
+<style>
+:root{--bg:#F4F7F7;--ink:#10272C;--muted:#4A6166;--sea:#0C3A44;--onsea:#EAF3F3;--amber:#E8A317;--amberink:#8A5A00;--line:#D2DFDF;--surface:#fff;--btnink:#1A1200;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1A1E;--ink:#E4EEEE;--muted:#9DB3B6;--sea:#0F4753;--amberink:#F0B03A;--line:#23403F;--surface:#11262B}}
+:root[data-theme="dark"]{--bg:#0A1A1E;--ink:#E4EEEE;--muted:#9DB3B6;--sea:#0F4753;--amberink:#F0B03A;--line:#23403F;--surface:#11262B}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.7 Cairo,system-ui,"Segoe UI",Tahoma,sans-serif}
+h1,h2,h3{line-height:1.25;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.w{max-width:1080px;margin-inline:auto;padding-inline:22px}
+section{padding-block:72px}
+h2{font-size:clamp(26px,4vw,36px);font-weight:800;margin-bottom:32px}
+header{background:var(--sea);color:var(--onsea)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-weight:800;font-size:21px;text-decoration:none;display:flex;align-items:center;gap:9px}
+.logo i{width:12px;height:12px;border-radius:50% 50% 50% 0;background:var(--amber);transform:rotate(-45deg)}
+nav{display:flex;gap:22px;align-items:center}
+nav a{text-decoration:none;font-size:15px;opacity:.9}
+nav a:hover{opacity:1;text-decoration:underline}
+.lang{display:flex;border:1px solid rgba(234,243,243,.4);border-radius:8px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--onsea);font:600 14px Cairo,sans-serif;padding:5px 12px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--amber);color:var(--btnink)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:56px 80px}
+.hero h1{font-size:clamp(32px,5vw,50px);font-weight:800;margin-bottom:18px}
+.hero p{font-size:19px;max-width:34em;opacity:.92;margin:0 0 28px}
+.btn{display:inline-block;padding:12px 24px;border-radius:10px;font-weight:700;text-decoration:none;border:2px solid var(--amber);cursor:pointer;font-family:inherit;font-size:16px}
+.btn.p{background:var(--amber);color:var(--btnink)}
+.btn.s{color:var(--onsea);margin-inline-start:10px}
+.btn:hover{filter:brightness(1.08)}
+.route{width:100%;height:auto}
+.route path{fill:none;stroke:var(--amber);stroke-width:2.5;stroke-dasharray:3 7;stroke-linecap:round}
+.route .a{stroke-dasharray:420;stroke-dashoffset:420;animation:draw 2.2s ease-out .3s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.route circle{fill:var(--amber)}
+.route text{fill:var(--onsea);font:600 15px Cairo,sans-serif}
+.dest{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.dest div{padding:6px 28px;border-inline-start:3px solid var(--amber)}
+.dest div+div{margin-inline-start:20px}
+.dest h3{font-size:24px;margin-bottom:8px}
+.dest p,.sv p,.st p{color:var(--muted);margin:0}
+.sv{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+.sv div{padding-block:20px;border-top:1px solid var(--line)}
+.sv h3{font-size:19px;margin-bottom:4px}
+.band{background:var(--surface);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s}
+.st{counter-increment:s;padding-top:18px;border-top:3px solid var(--amber)}
+.st::before{content:counter(s);display:block;font-weight:800;font-size:28px;color:var(--amberink);line-height:1}
+.st h3{font-size:19px;margin:8px 0 4px}
+.ok{list-style:none;padding:0;margin:0;display:grid;gap:14px;max-width:46em}
+.ok li{padding-inline-start:34px;position:relative}
+.ok li::before{content:"";position:absolute;inset-inline-start:4px;top:.5em;width:13px;height:7px;border-inline-start:3px solid var(--amberink);border-bottom:3px solid var(--amberink);transform:rotate(-45deg)}
+details{border-top:1px solid var(--line);padding-block:16px;max-width:46em}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{font-weight:700;cursor:pointer;font-size:18px}
+details p{margin:10px 0 0;color:var(--muted)}
+.ct{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
+.ct>div>p{color:var(--muted)}
+form{display:grid;gap:14px}
+label{font-weight:600;font-size:15px;display:grid;gap:5px}
+input,textarea{font:inherit;padding:11px 13px;border:1.5px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+footer{background:var(--sea);color:var(--onsea);padding-block:26px;font-size:15px}
+footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:820px){
+.hero,.ct,.sv{grid-template-columns:1fr}
+.dest,.steps{grid-template-columns:1fr 1fr}
+.dest div+div{margin-inline-start:0}
+nav a{display:none}
+section{padding-block:52px}
+}
+@media (max-width:520px){.dest,.steps{grid-template-columns:1fr}.dest{gap:22px}.btn.s{margin:10px 0 0}}
+@media (prefers-reduced-motion:reduce){.route .a{animation:none;stroke-dashoffset:0}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+<div class="w">
+<div class="bar">
+<a class="logo" href="#top"><i></i>BalticPath</a>
+<nav>
+<a href="#services" data-i="n1"></a><a href="#destinations" data-i="n2"></a><a href="#demarche" data-i="n3"></a><a href="#faq" data-i="n4"></a><a href="#contact" data-i="n5"></a>
+<div class="lang" role="group" aria-label="Langue / اللغة"><button data-l="fr" aria-pressed="true">FR</button><button data-l="ar" aria-pressed="false">عربي</button></div>
+</nav>
+</div>
+<div class="hero" id="top">
+<div>
+<h1 data-i="h1"></h1>
+<p data-i="hp"></p>
+<a class="btn p" href="#contact" data-i="b1"></a><a class="btn s" href="#services" data-i="b2"></a>
+</div>
+<svg class="route" viewBox="0 0 420 340" role="img" aria-label="Fès – Vilnius, Riga, Tallinn">
+<path class="a" d="M50 300 C110 180 230 220 330 70"/>
+<path class="a" d="M50 300 C140 230 250 270 340 140"/>
+<path class="a" d="M50 300 C150 280 270 300 350 210"/>
+<circle cx="50" cy="300" r="7"/><circle cx="330" cy="70" r="6"/><circle cx="340" cy="140" r="6"/><circle cx="350" cy="210" r="6"/>
+<text x="50" y="328" text-anchor="middle" data-i="cFes"></text>
+<text x="330" y="50" text-anchor="middle" data-i="cTal"></text>
+<text x="340" y="122" text-anchor="middle" data-i="cRig"></text>
+<text x="350" y="240" text-anchor="middle" data-i="cVil"></text>
+</svg>
+</div>
+</div>
+</header>
+
+<main>
+<section id="destinations"><div class="w">
+<h2 data-i="dt"></h2>
+<div class="dest">
+<div><h3 data-i="c1"></h3><p data-i="c1d"></p></div>
+<div><h3 data-i="c2"></h3><p data-i="c2d"></p></div>
+<div><h3 data-i="c3"></h3><p data-i="c3d"></p></div>
+</div></div></section>
+
+<section id="services" class="band"><div class="w">
+<h2 data-i="st"></h2>
+<div class="sv">
+<div><h3 data-i="s1"></h3><p data-i="s1d"></p></div>
+<div><h3 data-i="s2"></h3><p data-i="s2d"></p></div>
+<div><h3 data-i="s3"></h3><p data-i="s3d"></p></div>
+<div><h3 data-i="s4"></h3><p data-i="s4d"></p></div>
+<div><h3 data-i="s5"></h3><p data-i="s5d"></p></div>
+<div><h3 data-i="s6"></h3><p data-i="s6d"></p></div>
+</div></div></section>
+
+<section id="demarche"><div class="w">
+<h2 data-i="pt"></h2>
+<div class="steps">
+<div class="st"><h3 data-i="p1"></h3><p data-i="p1d"></p></div>
+<div class="st"><h3 data-i="p2"></h3><p data-i="p2d"></p></div>
+<div class="st"><h3 data-i="p3"></h3><p data-i="p3d"></p></div>
+<div class="st"><h3 data-i="p4"></h3><p data-i="p4d"></p></div>
+</div></div></section>
+
+<section class="band"><div class="w">
+<h2 data-i="kt"></h2>
+<ul class="ok"><li data-i="k1"></li><li data-i="k2"></li><li data-i="k3"></li><li data-i="k4"></li></ul>
+</div></section>
+
+<section id="faq"><div class="w">
+<h2 data-i="ft"></h2>
+<details><summary data-i="q1"></summary><p data-i="a1"></p></details>
+<details><summary data-i="q2"></summary><p data-i="a2"></p></details>
+<details><summary data-i="q3"></summary><p data-i="a3"></p></details>
+</div></section>
+
+<section id="contact" class="band"><div class="w ct">
+<div><h2 data-i="ct"></h2><p data-i="cp"></p><a class="btn p" id="wa" target="_blank" rel="noopener" data-i="wa"></a></div>
+<form id="f">
+<label><span data-i="f1"></span><input name="n" required autocomplete="name"></label>
+<label><span data-i="f2"></span><input name="c" required></label>
+<label><span data-i="f3"></span><textarea name="m" required></textarea></label>
+<button class="btn p" type="submit" data-i="send"></button>
+</form>
+</div></section>
+</main>
+
+<footer><div class="w"><span>© 2026 BalticPath — <span data-i="rights"></span></span><span>Fès · Maroc</span></div></footer>
+
+<script>
+var EMAIL="contact@example.ma", WA="212600000000";
+var T={
+n1:["Services","الخدمات"],n2:["Destinations","الوجهات"],n3:["Démarche","خطواتنا"],n4:["FAQ","الأسئلة الشائعة"],n5:["Contact","تواصل معنا"],
+h1:["Étudiez dans les pays baltes, avec un accompagnement clair et honnête","ادرس في دول البلطيق مع مرافقة واضحة وصادقة"],
+hp:["Nous guidons les étudiants marocains de la recherche du programme jusqu’à l’installation en Lituanie, en Lettonie et en Estonie.","نرافق الطلبة المغاربة من اختيار التخصص إلى الاستقرار في ليتوانيا ولاتفيا وإستونيا."],
+b1:["Parler à un conseiller","تحدث مع مستشار"],b2:["Voir nos services","اكتشف خدماتنا"],
+cFes:["Fès","فاس"],cTal:["Tallinn","تالين"],cRig:["Riga","ريغا"],cVil:["Vilnius","فيلنيوس"],
+dt:["Trois pays, un même objectif : bien choisir","ثلاث دول وهدف واحد: اختيار موفق"],
+c1:["Lituanie","ليتوانيا"],c1d:["Universités reconnues, coût de la vie modéré et de nombreux programmes en anglais.","جامعات معترف بها وتكلفة معيشة معتدلة وبرامج كثيرة بالإنجليزية."],
+c2:["Lettonie","لاتفيا"],c2d:["Une offre variée en anglais, notamment en médecine, ingénierie et gestion.","تخصصات متنوعة بالإنجليزية خاصة الطب والهندسة والتسيير."],
+c3:["Estonie","إستونيا"],c3d:["Un pays très numérique, tourné vers la technologie et l’innovation.","بلد رقمي بامتياز يتجه نحو التكنولوجيا والابتكار."],
+st:["Ce que nous faisons pour vous","ما نقوم به من أجلك"],
+s1:["Orientation académique","التوجيه الأكاديمي"],s1d:["Choix de l’université et du programme selon votre profil et votre budget.","اختيار الجامعة والتخصص حسب ملفك وميزانيتك."],
+s2:["Dossier de candidature","ملف التسجيل"],s2d:["Préparation des documents, lettre de motivation et dépôt avant les échéances.","إعداد الوثائق ورسالة الدافع وإيداع الطلب قبل الآجال."],
+s3:["Visa et titre de séjour","التأشيرة والإقامة"],s3d:["Liste exacte des pièces et suivi de la procédure auprès des autorités compétentes.","قائمة دقيقة بالوثائق ومتابعة المسطرة لدى الجهات المختصة."],
+s4:["Légalisation et traduction","التصديق والترجمة"],s4d:["Orientation pour faire légaliser et traduire vos diplômes et relevés de notes.","توجيه لتصديق وترجمة الشهادات وكشوف النقط."],
+s5:["Logement et arrivée","السكن والوصول"],s5d:["Conseils pour trouver un logement fiable et préparer votre premier mois.","نصائح للعثور على سكن موثوق والاستعداد لشهرك الأول."],
+s6:["Suivi sur place","المتابعة بعد الوصول"],s6d:["Un point de contact pour vos premières démarches sur place.","نقطة اتصال لخطواتك الأولى بعد الوصول."],
+pt:["Comment ça se passe","كيف نعمل"],
+p1:["Entretien gratuit","مقابلة مجانية"],p1d:["Nous écoutons votre projet et vos contraintes.","نستمع إلى مشروعك وظروفك."],
+p2:["Choix du programme","اختيار البرنامج"],p2d:["Une sélection réaliste, avec les coûts et les délais.","اختيار واقعي مع التكاليف والآجال."],
+p3:["Candidature et visa","التسجيل والتأشيرة"],p3d:["Nous préparons chaque document, vous validez.","نُعدّ كل وثيقة وأنت تصادق عليها."],
+p4:["Préparation du départ","الاستعداد للسفر"],p4d:["Billet, logement, arrivée : rien n’est laissé au hasard.","التذكرة والسكن والوصول: لا شيء متروك للصدفة."],
+kt:["Nos engagements","التزاماتنا"],
+k1:["Aucune promesse d’emploi, de résidence ou d’admission garantie.","لا وعود بالعمل أو الإقامة أو القبول المضمون."],
+k2:["Nos honoraires sont communiqués par écrit avant tout engagement.","أتعابنا تُقدَّم كتابةً قبل أي التزام."],
+k3:["Jamais de faux documents ni de déclarations inexactes.","لا وثائق مزورة ولا تصريحات غير صحيحة."],
+k4:["Vous pouvez aussi postuler seul : nous vous faisons gagner du temps et évitons les erreurs.","يمكنك التقديم بمفردك أيضًا؛ نحن نوفر وقتك ونجنبك الأخطاء."],
+ft:["Questions fréquentes","الأسئلة الشائعة"],
+q1:["Combien coûte l’accompagnement ?","كم تبلغ تكلفة المرافقة؟"],a1:["Le premier entretien est gratuit. Les honoraires sont détaillés par écrit avant de commencer.","المقابلة الأولى مجانية، وتُفصَّل الأتعاب كتابةً قبل البدء."],
+q2:["Quand dois-je commencer ?","متى أبدأ؟"],a2:["Idéalement 6 à 9 mois avant la rentrée : les délais d’admission et de visa varient.","الأفضل قبل 6 إلى 9 أشهر من الدخول الدراسي، فآجال القبول والتأشيرة تختلف."],
+q3:["Puis-je travailler pendant mes études ?","هل يمكنني العمل أثناء الدراسة؟"],a3:["Les règles changent selon le pays et évoluent. Nous vous donnons l’information officielle à jour, sans promesse.","تختلف القواعد حسب البلد وتتغير. نمدّك بالمعلومة الرسمية المحدثة دون أي وعود."],
+ct:["Parlons de votre projet","لنتحدث عن مشروعك"],cp:["Écrivez-nous, nous vous répondons rapidement.","راسلنا وسنرد عليك في أقرب وقت."],
+wa:["Écrire sur WhatsApp","راسلنا على واتساب"],
+f1:["Nom","الاسم"],f2:["Email ou WhatsApp","البريد الإلكتروني أو واتساب"],f3:["Votre projet (pays, filière, niveau)","مشروعك (البلد، التخصص، المستوى)"],
+send:["Envoyer le message","إرسال الرسالة"],rights:["Tous droits réservés.","جميع الحقوق محفوظة."]
+};
+var titles=["BalticPath – Études dans les pays baltes","BalticPath – الدراسة في دول البلطيق"];
+function setLang(l){
+  var k=l==="ar"?1:0, d=document.documentElement;
+  d.lang=l; d.dir=l==="ar"?"rtl":"ltr"; document.title=titles[k];
+  document.querySelectorAll("[data-i]").forEach(function(e){e.textContent=T[e.dataset.i][k]});
+  document.querySelectorAll("[data-l]").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.l===l))});
+  try{localStorage.setItem("lang",l)}catch(e){}
+}
+document.querySelectorAll("[data-l]").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.l)})});
+document.getElementById("wa").href="https://wa.me/"+WA;
+document.getElementById("f").addEventListener("submit",function(e){
+  e.preventDefault();
+  var f=e.target, body=f.n.value+"\n"+f.c.value+"\n\n"+f.m.value;
+  location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("BalticPath")+"&body="+encodeURIComponent(body);
+});
+var s="fr"; try{s=localStorage.getItem("lang")||"fr"}catch(e){}
+setLang(s==="ar"?"ar":"fr");
+</script>
+</body>
+</html>
